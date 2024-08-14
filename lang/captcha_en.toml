@@ -1,1 +1,3 @@
 module_captcha = "Captcha"
+
+err_captcha = "You have to type the letters from the captcha image."
