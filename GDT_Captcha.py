@@ -14,7 +14,7 @@ class GDT_Captcha(WithLabel, GDT_Field):
     ############
     # Validate #
     ############
-    def validate(self, val: str | None, value: any) -> bool:
+    async def validate(self, val: str | None, value: any) -> bool:
         session = Application.get_session()
         correct = session.get('captcha')
         if val is None:
