@@ -3,6 +3,7 @@ from gdo.base.Util import href
 from gdo.core.GDT_Field import GDT_Field
 from gdo.core.GDT_Template import GDT_Template
 from gdo.core.WithLabel import WithLabel
+from gdo.form.GDT_Form import GDT_Form
 
 
 class GDT_Captcha(WithLabel, GDT_Field):
@@ -24,7 +25,7 @@ class GDT_Captcha(WithLabel, GDT_Field):
             return True
         return self.error('err_captcha')
 
-    def gdo_form_validated(self):
+    def gdo_form_validated(self, form: GDT_Form):
         Application.get_session().remove('captcha_solved')
 
     ##########
