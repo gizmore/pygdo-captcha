@@ -6,7 +6,7 @@ from gdo.core.WithLabel import WithLabel
 from gdo.form.GDT_Form import GDT_Form
 
 
-class GDT_Captcha(WithLabel, GDT_Field):
+class GDT_Captcha(GDT_Field):
 
     def __init__(self, name: str = 'captcha'):
         super().__init__(name)
