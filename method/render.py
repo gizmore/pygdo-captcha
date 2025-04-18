@@ -16,7 +16,8 @@ from gdo.ui.GDT_Width import GDT_Width
 
 class render(Method):
 
-    def gdo_trigger(self) -> str:
+    @classmethod
+    def gdo_trigger(cls) -> str:
         return ''
 
     def gdo_parameters(self) -> list[GDT]:
