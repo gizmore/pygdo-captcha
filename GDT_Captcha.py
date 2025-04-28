@@ -15,7 +15,7 @@ class GDT_Captcha(GDT_Field):
     ############
     # Validate #
     ############
-    def validate(self, val: str | None, value: any) -> bool:
+    def validate(self, val: str|None) -> bool:
         if Application.is_unit_test():
             return True
         session = Application.get_session()
