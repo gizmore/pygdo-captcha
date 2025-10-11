@@ -1,8 +1,7 @@
 from gdo.base.Application import Application
-from gdo.base.Util import href
+from gdo.base.util.href import href
 from gdo.core.GDT_Field import GDT_Field
 from gdo.core.GDT_Template import GDT_Template
-from gdo.core.WithLabel import WithLabel
 from gdo.form.GDT_Form import GDT_Form
 
 

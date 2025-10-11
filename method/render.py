@@ -7,6 +7,7 @@ from gdo.base.Application import Application
 from gdo.base.GDT import GDT
 from gdo.base.Method import Method
 from gdo.base.Util import Random
+from gdo.core.GDT_Char import GDT_Char
 from gdo.core.GDT_Raw import GDT_Raw
 from gdo.ui.GDT_Color import GDT_Color
 from gdo.ui.GDT_Font import GDT_Font
@@ -26,6 +27,7 @@ class render(Method):
             GDT_Height('height').initial('64').not_null(),
             GDT_Color('bg').initial('#ffffff00').not_null(),
             GDT_Color('fg').initial('#999999ff').not_null(),
+            GDT_Char('static').minlen(5),
         ]
 
     def is_static(self) -> bool:
