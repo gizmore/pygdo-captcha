@@ -6,28 +6,28 @@ from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Util import module_enabled
 from gdo.core.GDO_Session import GDO_Session
-from gdotest.TestUtil import web_plug, reinstall_module, web_gizmore, install_module
+from gdotest.TestUtil import web_plug, reinstall_module, web_gizmore, install_module, GDOTestCase
 
 
-class CaptchaTest(unittest.TestCase):
+class CaptchaTest(GDOTestCase):
 
-    def setUp(self):
+    async def asyncSetUp(self):
+        await super().asyncSetUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
         Application.init_cli()
-        Application.set_session(GDO_Session.for_user(web_gizmore()))
+        install_module('captcha')
         loader = ModuleLoader.instance()
         loader.load_modules_db()
         loader.init_modules(load_vals=True)
-        install_module('captcha')
-        return self
+        Application.set_session(GDO_Session.for_user(web_gizmore()))
 
-    def test_00_install(self):
+    async def test_00_install(self):
         reinstall_module('captcha')
         self.assertTrue(module_enabled('captcha'), 'cannot install captcha')
 
-    def test_01_form_rendering(self):
+    async def test_01_form_rendering(self):
         out = web_plug('captcha.render.txt').exec()
-        self.assertTrue(out.startswith('GIF87a'), 'CaptchaTest does not render captcha')
+        self.assertTrue(out.startswith(b'GIF87a'), 'CaptchaTest does not render captcha')
 
 
 if __name__ == '__main__':
