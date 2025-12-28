@@ -1,7 +1,6 @@
 import os
 import unittest
 
-from gdo.avatar.GDO_Avatar import GDO_Avatar
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Util import module_enabled
