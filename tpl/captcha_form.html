@@ -4,7 +4,7 @@
     <input id="<%=field.get_name()%>" name="<%=field.get_name()%>" type="text"
            pattern="[A-Za-z]{5}"
            required
-           aria-label="<%=field.render_label(Mode.html)%>"
+           aria-label="<%=field.render_label(Mode.render_html)%>"
            value="<%=old%>" />
      <% if field.has_error():
         write(f'<div class="form-field-error">%s</div>' % field.render_error())
