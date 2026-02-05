@@ -25,8 +25,8 @@ class render(Method):
         return [
             GDT_Width('width').initial('240').not_null(),
             GDT_Height('height').initial('64').not_null(),
-            GDT_Color('bg').initial('#ffffff00').not_null(),
-            GDT_Color('fg').initial('#999999ff').not_null(),
+            GDT_Color('bg').initial('ffffff00').not_null(),
+            GDT_Color('fg').initial('999999ff').not_null(),
             GDT_Char('static').minlen(5),
         ]
 
