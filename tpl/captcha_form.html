@@ -1,11 +1,11 @@
 <div class="gdt-form-field">
     <label for="<%=field.get_name()%>"><%=field.render_label(Mode.render_html)%></label>
-    <img src="<%=href%>" onclick="this.src='<%=href%>?t=' + (new Date()).getTime();" />
+    <img src="<%=href%>" onclick="this.src='<%=href%>?t=' + (new Date()).getTime();">
     <input id="<%=field.get_name()%>" name="<%=field.get_name()%>" type="text"
            pattern="[A-Za-z]{5}"
            required
            aria-label="<%=field.render_label(Mode.render_html)%>"
-           value="<%=old%>" />
+           value="<%=old%>">
      <% if field.has_error():
         write(f'<div class="form-field-error">%s</div>' % field.render_error())
     %>
